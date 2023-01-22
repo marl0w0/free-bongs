@@ -32,13 +32,9 @@ async def on_message(message):
     if message.content == "z!init sm":
         await message.guild.get_member(self.user.id).edit(nick="Spice Machine")
         
-#    if message.content.startswith(pref + "d"):
-#        operation = message.content
-#        params = [int(i) for i in operation.split() if i.isdigit()]
-#        await message.channel.send(str(roll(params[0], params[1], params[2])))
     
     
     
 
-client.run('OTQ3NzYwNDkxNzA5NzU1NDIy.Gq0p78.cvxQwKnhdjofv9TrFpI4-9vAldvUYAWsyTcAuU')
-#OTQ3NzYwNDkxNzA5NzU1NDIy.Gq0p78.cvxQwKnhdjofv9TrFpI4-9vAldvUYAWsyTcAuU
+client.run('')
+#add token
