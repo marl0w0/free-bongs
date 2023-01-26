@@ -5,6 +5,7 @@ import discord
 import asyncio
 import time
 import sys
+from secrets import *
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -24,6 +25,7 @@ async def on_message(message):
     emb = message.embeds
     att = message.attachments
     op = ""
+    params = ""
     global bmode
     global grtarget
     
@@ -55,6 +57,8 @@ async def on_message(message):
         await message.guild.get_member(client.user.id).edit(nick="Atomic Heart")
         bmode=3
         print("atomic heart")
+    if message.content.startswith("echo"):
+        await message.channel.send(discord.utils.escape_mentions(message.content.replace("echo","")))
     if bmode == 2:
         if message.author == grtarget:
             if message.content.startswith("-x") != True:
@@ -67,10 +71,20 @@ async def on_message(message):
             opfile = open("output.txt", "w")
             opfile.write("")
             opfile.close()
+        if message.content.startswith("z!wordScan"):
+            op = message.content
+            op = op.replace("z!wordScan ", "")
+            op = op.lower()
+            params = op.split(" ")
+            for x in params:
+                print(x)
+            await atomicheart.wordScan(params, message)
+        if message.content == "z!CLEARBOT":
+            await atomicheart.clearbot(message, client.user)
         
     
     
     
 
-client.run('')
+client.run(btoken)
 #add token
